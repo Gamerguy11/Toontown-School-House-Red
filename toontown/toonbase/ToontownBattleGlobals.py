@@ -44,7 +44,7 @@ AvLureRounds = (3,
  4,
  5,
  5,
- 15)
+ 6)
 PropTypeToTrackBonus = {AnimPropTypes.Hydrant: SQUIRT_TRACK,
  AnimPropTypes.Mailbox: THROW_TRACK,
  AnimPropTypes.Trashcan: HEAL_TRACK}
