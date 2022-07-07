@@ -7,6 +7,7 @@ import SuitBattleGlobals, BattleExperienceAI
 from toontown.toon import NPCToons
 from toontown.pets import PetTricks, DistributedPetProxyAI
 from direct.showbase.PythonUtil import lerp
+import math
 
 class BattleCalculatorAI:
     AccuracyBonuses = [
@@ -156,6 +157,7 @@ class BattleCalculatorAI:
                 if treebonus:
                     self.notify.debug('using organic bonus lure accuracy')
                     propAcc += AvLureBonusAccuracy[atkLevel]
+                    
                 if propBonus:
                     self.notify.debug('using prop bonus lure accuracy')
                     propAcc += AvLureBonusAccuracy[atkLevel]
@@ -814,13 +816,7 @@ class BattleCalculatorAI:
             return 1
         return 0
 
-    def __processBonuses(self, hp=1):
-        lureTreeBonus = False
-        organicBonus = 0 # Will Add Org Lure Check Later
-
-        if organicBonus > 0:
-            lureTreeBonus = True
-
+    def __processBonuses(self, hp=1, orglure=0):
         if hp:
             bonusList = self.hpBonuses
             self.notify.debug('Processing hpBonuses: ' + repr(self.hpBonuses))
@@ -843,12 +839,11 @@ class BattleCalculatorAI:
                         attack[TOON_HPBONUS_COL] = math.ceil(totalDmgs * (self.DamageBonuses[numDmgs - 1] * 0.01))
                         if self.notify.getDebug():
                             self.notify.debug('Applying hp bonus to track ' + str(attack[TOON_TRACK_COL]) + ' of ' + str(attack[TOON_HPBONUS_COL]))
-                    elif len(attack[TOON_KBBONUS_COL]) > tgtPos and lureTreeBonus == True:
-                        attack[TOON_KBBONUS_COL][tgtPos] = totalDmgs * 0.65
-                        if self.notify.getDebug():
-                            self.notify.debug('Applying kb bonus to track ' + str(attack[TOON_TRACK_COL]) + ' of ' + str(attack[TOON_KBBONUS_COL][tgtPos]) + ' to target ' + str(tgtPos))
                     elif len(attack[TOON_KBBONUS_COL]) > tgtPos:
-                        attack[TOON_KBBONUS_COL][tgtPos] = totalDmgs * 0.50
+                        if orglure:
+                            attack[TOON_KBBONUS_COL][tgtPos] = math.ceil(totalDmgs * 0.65)
+                        else:
+                            attack[TOON_KBBONUS_COL][tgtPos] = math.ceil(totalDmgs * 0.50)
                         if self.notify.getDebug():
                             self.notify.debug('Applying kb bonus to track ' + str(attack[TOON_TRACK_COL]) + ' of ' + str(attack[TOON_KBBONUS_COL][tgtPos]) + ' to target ' + str(tgtPos))
                     else:
