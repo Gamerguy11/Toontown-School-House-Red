@@ -1,0 +1,335 @@
+{
+    "51": {
+        "becameSuitTime": 0, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 1, 
+        "difficulty": 1, 
+        "state": "toon", 
+        "block": 51
+    }, 
+    "43": {
+        "becameSuitTime": 1656968633.909, 
+        "savedBy": null, 
+        "track": "l", 
+        "numFloors": 2, 
+        "difficulty": 7, 
+        "state": "cogdo", 
+        "block": 43
+    }, 
+    "49": {
+        "becameSuitTime": 1656968696.203, 
+        "savedBy": null, 
+        "track": "s", 
+        "numFloors": 1, 
+        "difficulty": 7, 
+        "state": "cogdo", 
+        "block": 49
+    }, 
+    "53": {
+        "becameSuitTime": 0, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 1, 
+        "difficulty": 1, 
+        "state": "toon", 
+        "block": 53
+    }, 
+    "24": {
+        "becameSuitTime": 0, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 1, 
+        "difficulty": 1, 
+        "state": "toon", 
+        "block": 24
+    }, 
+    "25": {
+        "becameSuitTime": 0, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 1, 
+        "difficulty": 1, 
+        "state": "toon", 
+        "block": 25
+    }, 
+    "27": {
+        "becameSuitTime": 0, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 1, 
+        "difficulty": 1, 
+        "state": "toon", 
+        "block": 27
+    }, 
+    "20": {
+        "becameSuitTime": 1656968447.03, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 2, 
+        "difficulty": 4, 
+        "state": "suit", 
+        "block": 20
+    }, 
+    "21": {
+        "becameSuitTime": 0, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 1, 
+        "difficulty": 1, 
+        "state": "toon", 
+        "block": 21
+    }, 
+    "22": {
+        "becameSuitTime": 1656968897.217, 
+        "savedBy": null, 
+        "track": "s", 
+        "numFloors": 1, 
+        "difficulty": 7, 
+        "state": "cogdo", 
+        "block": 22
+    }, 
+    "23": {
+        "becameSuitTime": 1656968451.961, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 3, 
+        "difficulty": 5, 
+        "state": "suit", 
+        "block": 23
+    }, 
+    "47": {
+        "becameSuitTime": 1656969066.429, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 2, 
+        "difficulty": 4, 
+        "state": "suit", 
+        "block": 47
+    }, 
+    "44": {
+        "becameSuitTime": 0, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 1, 
+        "difficulty": 1, 
+        "state": "toon", 
+        "block": 44
+    }, 
+    "42": {
+        "becameSuitTime": 1656968269.584, 
+        "savedBy": null, 
+        "track": "s", 
+        "numFloors": 1, 
+        "difficulty": 7, 
+        "state": "cogdo", 
+        "block": 42
+    }, 
+    "29": {
+        "becameSuitTime": 0, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 1, 
+        "difficulty": 1, 
+        "state": "toon", 
+        "block": 29
+    }, 
+    "41": {
+        "becameSuitTime": 1656968557.604, 
+        "savedBy": null, 
+        "track": "s", 
+        "numFloors": 1, 
+        "difficulty": 7, 
+        "state": "cogdo", 
+        "block": 41
+    }, 
+    "1": {
+        "becameSuitTime": 0, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 5, 
+        "difficulty": 6, 
+        "state": "toon", 
+        "block": 1
+    }, 
+    "2": {
+        "becameSuitTime": 0, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 1, 
+        "difficulty": 1, 
+        "state": "toon", 
+        "block": 2
+    }, 
+    "5": {
+        "becameSuitTime": 1656968794.322, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 4, 
+        "difficulty": 5, 
+        "state": "suit", 
+        "block": 5
+    }, 
+    "7": {
+        "becameSuitTime": 0, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 1, 
+        "difficulty": 1, 
+        "state": "toon", 
+        "block": 7
+    }, 
+    "8": {
+        "becameSuitTime": 0, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 1, 
+        "difficulty": 1, 
+        "state": "toon", 
+        "block": 8
+    }, 
+    "38": {
+        "becameSuitTime": 0, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 1, 
+        "difficulty": 1, 
+        "state": "toon", 
+        "block": 38
+    }, 
+    "11": {
+        "becameSuitTime": 0, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 1, 
+        "difficulty": 1, 
+        "state": "toon", 
+        "block": 11
+    }, 
+    "10": {
+        "becameSuitTime": 1656968311.463, 
+        "savedBy": null, 
+        "track": "s", 
+        "numFloors": 1, 
+        "difficulty": 7, 
+        "state": "cogdo", 
+        "block": 10
+    }, 
+    "13": {
+        "becameSuitTime": 1656968979.931, 
+        "savedBy": null, 
+        "track": "s", 
+        "numFloors": 1, 
+        "difficulty": 7, 
+        "state": "cogdo", 
+        "block": 13
+    }, 
+    "12": {
+        "becameSuitTime": 0, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 1, 
+        "difficulty": 1, 
+        "state": "toon", 
+        "block": 12
+    }, 
+    "15": {
+        "becameSuitTime": 0, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 1, 
+        "difficulty": 1, 
+        "state": "toon", 
+        "block": 15
+    }, 
+    "14": {
+        "becameSuitTime": 0, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 1, 
+        "difficulty": 1, 
+        "state": "toon", 
+        "block": 14
+    }, 
+    "17": {
+        "becameSuitTime": 0, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 1, 
+        "difficulty": 1, 
+        "state": "toon", 
+        "block": 17
+    }, 
+    "18": {
+        "becameSuitTime": 1656969228.935, 
+        "savedBy": null, 
+        "track": "l", 
+        "numFloors": 2, 
+        "difficulty": 7, 
+        "state": "cogdo", 
+        "block": 18
+    }, 
+    "30": {
+        "becameSuitTime": 1656968595.817, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 4, 
+        "difficulty": 4, 
+        "state": "suit", 
+        "block": 30
+    }, 
+    "37": {
+        "becameSuitTime": 0, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 1, 
+        "difficulty": 1, 
+        "state": "toon", 
+        "block": 37
+    }, 
+    "36": {
+        "becameSuitTime": 0, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 1, 
+        "difficulty": 1, 
+        "state": "toon", 
+        "block": 36
+    }, 
+    "35": {
+        "becameSuitTime": 0, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 1, 
+        "difficulty": 1, 
+        "state": "toon", 
+        "block": 35
+    }, 
+    "34": {
+        "becameSuitTime": 1656968575.029, 
+        "savedBy": null, 
+        "track": "l", 
+        "numFloors": 2, 
+        "difficulty": 7, 
+        "state": "cogdo", 
+        "block": 34
+    }, 
+    "48": {
+        "becameSuitTime": 1656968939.542, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 3, 
+        "difficulty": 5, 
+        "state": "suit", 
+        "block": 48
+    }, 
+    "50": {
+        "becameSuitTime": 1656968843.391, 
+        "savedBy": null, 
+        "track": "c", 
+        "numFloors": 2, 
+        "difficulty": 4, 
+        "state": "suit", 
+        "block": 50
+    }
+}
