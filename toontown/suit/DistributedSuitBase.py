@@ -111,12 +111,12 @@ class DistributedSuitBase(DistributedAvatar.DistributedAvatar, Suit.Suit, SuitBa
         nameName = self._name
         nameDept = self.getStyleDept()
         nameLevel = str(self.getActualLevel())
-        if self.getSkeleRevives() > 0:
-            nameLevel += TTLocalizer.SkeleRevivePostFix
         if self.getImmuneStatus():
             nameLevel += TTLocalizer.ImmunePostFix
         if self.getElite():
             nameLevel += TTLocalizer.ElitePostFix
+        if self.getSkeleRevives() > 0:
+            nameLevel += TTLocalizer.SkeleRevivePostFix
         nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': nameName,
             'dept': nameDept,
             'level': nameLevel}

@@ -160,6 +160,8 @@ class SuitPlannerInteriorAI:
             newSuit.setElite(1)
         newSuit.generateWithRequired(suitZone)
         newSuit.node().setName('suit-%s' % newSuit.doId)
+        nameInfo = newSuit.createNameInfo()
+        newSuit.setDisplayName(nameInfo)
         return newSuit
 
     def myPrint(self):
