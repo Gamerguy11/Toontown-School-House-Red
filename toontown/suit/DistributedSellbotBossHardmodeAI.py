@@ -220,14 +220,14 @@ class DistributedSellbotBossHardmodeAI(DistributedBossCogAI.DistributedBossCogAI
     def generateSuits(self, battleNumber):
         if self.nerfed:
             if battleNumber == 1:
-                return self.invokeSuitPlanner(19, 0, 1)
+                return self.invokeSuitPlanner(19, 2, 1)
             else:
-                return self.invokeSuitPlanner(20, 1, 1)
+                return self.invokeSuitPlanner(20, 0, 1)
         else:
             if battleNumber == 1:
-                return self.invokeSuitPlanner(19, 0, 1)
+                return self.invokeSuitPlanner(19, 2, 1)
             else:
-                return self.invokeSuitPlanner(20, 1, 1)
+                return self.invokeSuitPlanner(20, 0, 1)
 
     def removeToon(self, avId):
         toon = simbase.air.doId2do.get(avId)
