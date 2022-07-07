@@ -1066,15 +1066,15 @@ class Suit(Avatar.Avatar):
         if self.isImmune:
             nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
              'dept': self.getStyleDept(),
-             'level': self.getActualLevel() + TTLocalizer.ImmunePostFix}
+             'level': str(self.getActualLevel()) + TTLocalizer.ImmunePostFix}
         elif self.isElite:
             nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
              'dept': self.getStyleDept(),
-             'level': self.getActualLevel() + TTLocalizer.ElitePostFix}
+             'level': str(self.getActualLevel()) + TTLocalizer.ElitePostFix}
         elif self.isImmune and self.isElite:
             nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
              'dept': self.getStyleDept(),
-             'level': self.getActualLevel() + TTLocalizer.ImmunePostFix + TTLocalizer.ElitePostFix}
+             'level': str(self.getActualLevel()) + TTLocalizer.ImmunePostFix + TTLocalizer.ElitePostFix}
         else:
             nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
              'dept': self.getStyleDept(),
