@@ -70,6 +70,7 @@ class DistributedSuitBase(DistributedAvatar.DistributedAvatar, Suit.Suit, SuitBa
 
     def setElite(self, elite):
         self.elite = elite
+        self.isElite = self.elite
         if self.elite:
             self.makeElite()
 

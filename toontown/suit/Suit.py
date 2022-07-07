@@ -357,6 +357,7 @@ class Suit(Avatar.Avatar):
         self.isRental = 0
         self.isImmune = 0
         self.isVirtual = 0
+        self.isElite = 0
         self.setBlend(frameBlend=True)
         return
 
@@ -416,6 +417,7 @@ class Suit(Avatar.Avatar):
         self.isSkeleton = 0
         self.isImmune = 0
         self.isVirtual = 0
+        self.isElite = 0
         self.setBlend(frameBlend=True)
         if dna.name == 'f':
             self.scale = 4.0 / cSize
@@ -1065,6 +1067,14 @@ class Suit(Avatar.Avatar):
             nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
              'dept': self.getStyleDept(),
              'level': self.getActualLevel() + TTLocalizer.ImmunePostFix}
+        elif self.isElite:
+            nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
+             'dept': self.getStyleDept(),
+             'level': self.getActualLevel() + TTLocalizer.ElitePostFix}
+        elif self.isImmue and self.isElite:
+            nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
+             'dept': self.getStyleDept(),
+             'level': self.getActualLevel() + TTLocalizer.ImmunePostFix + TTLocalizer.ElitePostFix}
         else:
             nameInfo = TTLocalizer.SuitBaseNameWithLevel % {'name': self._name,
              'dept': self.getStyleDept(),
