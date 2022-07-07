@@ -126,6 +126,7 @@ class DistributedSuitBaseAI(DistributedAvatarAI.DistributedAvatarAI, SuitBase.Su
         if self.elite:
             self.maxHP = int(self.maxHP*1.5)
             self.currHP = self.maxHP
+            self.b_setHP(self.maxHP)
 
     def b_setSkeleRevives(self, num):
         if num == None:
