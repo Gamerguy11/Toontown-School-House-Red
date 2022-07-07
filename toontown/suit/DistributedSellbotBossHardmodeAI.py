@@ -414,6 +414,8 @@ class DistributedSellbotBossHardmodeAI(DistributedBossCogAI.DistributedBossCogAI
             if cogLevel < level:
                 cogLevel = level
             suit.setLevel(cogLevel)
+            if random.randint(1, 100) <= 20:
+                suit.setElite(1)
             suit.generateWithRequired(self.zoneId)
             self.doobers.append(suit)
 
