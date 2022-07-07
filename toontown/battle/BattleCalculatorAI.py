@@ -815,6 +815,7 @@ class BattleCalculatorAI:
         return 0
 
     def __processBonuses(self, hp=1):
+        lureTreeBonus = False
         if hp:
             bonusList = self.hpBonuses
             self.notify.debug('Processing hpBonuses: ' + repr(self.hpBonuses))
@@ -839,6 +840,10 @@ class BattleCalculatorAI:
                             self.notify.debug('Applying hp bonus to track ' + str(attack[TOON_TRACK_COL]) + ' of ' + str(attack[TOON_HPBONUS_COL]))
                     elif len(attack[TOON_KBBONUS_COL]) > tgtPos:
                         attack[TOON_KBBONUS_COL][tgtPos] = totalDmgs * 0.5
+                        if self.notify.getDebug():
+                            self.notify.debug('Applying kb bonus to track ' + str(attack[TOON_TRACK_COL]) + ' of ' + str(attack[TOON_KBBONUS_COL][tgtPos]) + ' to target ' + str(tgtPos))
+                    elif len(attack[TOON_KBBONUS_COL]) > tgtPos and (lureTreeBonus == True):
+                        attack[TOON_KBBONUS_COL][tgtPos] = totalDmgs * 0.65
                         if self.notify.getDebug():
                             self.notify.debug('Applying kb bonus to track ' + str(attack[TOON_TRACK_COL]) + ' of ' + str(attack[TOON_KBBONUS_COL][tgtPos]) + ' to target ' + str(tgtPos))
                     else:
