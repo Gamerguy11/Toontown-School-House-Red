@@ -88,6 +88,7 @@ class SuitPlannerInteriorAI:
                 reserveDict['track'] = bldgTrack
                 reserveDict['level'] = level
                 reserveDict['revives'] = revives
+                reserveDict['immune'] = immune
                 reserveDict['joinChance'] = joinChances[currReserve]
                 reserveDicts.append(reserveDict)
 
@@ -157,7 +158,7 @@ class SuitPlannerInteriorAI:
         newSuit.setImmuneStatus(immune)
         eliteChance = 25
         if random.randint(1, 100) <= eliteChance:
-            newSuit.b_setElite(1)
+            newSuit.setElite(1)
         newSuit.generateWithRequired(suitZone)
         newSuit.node().setName('suit-%s' % newSuit.doId)
         return newSuit
