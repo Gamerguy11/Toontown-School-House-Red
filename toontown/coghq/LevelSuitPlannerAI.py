@@ -89,6 +89,8 @@ class LevelSuitPlannerAI(DirectObject.DirectObject):
         suit.boss = suitDict['boss']
         if random.randint(1, 100) <= 25 or suit.boss:
             suit.setElite(1)
+        nameInfo = suit.createNameInfo()
+        suit.setDisplayName(nameInfo)
         return suit
 
     def genSuits(self):
