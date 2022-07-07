@@ -157,11 +157,9 @@ class SuitPlannerInteriorAI:
         newSuit.setImmuneStatus(immune)
         eliteChance = 25
         if random.randint(1, 100) <= eliteChance:
-            newSuit.setElite(1)
+            newSuit.b_setElite(1)
         newSuit.generateWithRequired(suitZone)
         newSuit.node().setName('suit-%s' % newSuit.doId)
-        nameInfo = newSuit.createNameInfo()
-        newSuit.setDisplayName(nameInfo)
         return newSuit
 
     def myPrint(self):
