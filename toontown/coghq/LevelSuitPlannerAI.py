@@ -87,7 +87,6 @@ class LevelSuitPlannerAI(DirectObject.DirectObject):
             suit.setSkelecog(1)
         suit.generateWithRequired(suitDict['zoneId'])
         suit.boss = suitDict['boss']
-        eliteChance = 25
         if random.randint(1, 100) <= 25 or suit.boss:
             suit.setElite(1)
         return suit
