@@ -53,6 +53,7 @@ class BattleCalculatorAI:
         self.__skillCreditMultiplier = 1
         self.tutorialFlag = tutorialFlag
         self.trainTrapTriggered = False
+        self.orgLure = 0
 
     def setSkillCreditMultiplier(self, mult):
         self.__skillCreditMultiplier = mult
@@ -478,8 +479,16 @@ class BattleCalculatorAI:
                             self.__addLuredSuitsDelayed(toonId, targetId)
                     if targetLured and (targetId not in self.successfulLures or targetId in self.successfulLures and self.successfulLures[targetId][1] < atkLevel):
                         self.notify.debug('Adding target ' + str(targetId) + ' to successfulLures list')
-                        self.successfulLures[targetId] = [
-                         toonId, atkLevel, atkAcc, -1]
+                        treebonus = self.__toonCheckGagBonus(attack[TOON_ID_COL], atkTrack, atkLevel)
+                        propbonus = self.__checkPropBonus(atkTrack)
+                        if treebonus or propbonus:
+                            self.successfulLures[targetId] = [
+                            toonId, atkLevel, atkAcc, -1]
+                            self.orgLure = 1
+                        else:
+                            self.successfulLures[targetId] = [
+                            toonId, atkLevel, atkAcc, -1]
+                            self.orgLure = 0
                 else:
                     simbase.air.doId2do.get(toonId).d_sendToonTip(5)
             else:
@@ -816,7 +825,7 @@ class BattleCalculatorAI:
             return 1
         return 0
 
-    def __processBonuses(self, hp=1, orglure=0):
+    def __processBonuses(self, hp=1, orgLure=0):
         if hp:
             bonusList = self.hpBonuses
             self.notify.debug('Processing hpBonuses: ' + repr(self.hpBonuses))
@@ -840,7 +849,7 @@ class BattleCalculatorAI:
                         if self.notify.getDebug():
                             self.notify.debug('Applying hp bonus to track ' + str(attack[TOON_TRACK_COL]) + ' of ' + str(attack[TOON_HPBONUS_COL]))
                     elif len(attack[TOON_KBBONUS_COL]) > tgtPos:
-                        if orglure:
+                        if orgLure:
                             attack[TOON_KBBONUS_COL][tgtPos] = math.ceil(totalDmgs * 0.65)
                         else:
                             attack[TOON_KBBONUS_COL][tgtPos] = math.ceil(totalDmgs * 0.50)
@@ -1076,7 +1085,7 @@ class BattleCalculatorAI:
                 if lastAttack:
                     self.__clearLuredSuitsDelayed()
 
-        self.__processBonuses(hp=0)
+        self.__processBonuses(hp=0, orgLure=self.orgLure)
         self.__processBonuses(hp=1)
         self.__postProcessToonAttacks()
         return
