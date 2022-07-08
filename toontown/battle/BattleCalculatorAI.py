@@ -842,8 +842,11 @@ class BattleCalculatorAI:
                         if self.notify.getDebug():
                             self.notify.debug('Applying hp bonus to track ' + str(attack[TOON_TRACK_COL]) + ' of ' + str(attack[TOON_HPBONUS_COL]))
                     elif len(attack[TOON_KBBONUS_COL]) > tgtPos:
-                        luredCog = self.currentlyLuredSuits.keys()[tgtPos]
-                        orgLure = self.currentlyLuredSuits[luredCog][4]
+                        if self.currentlyLuredSuits:
+                            luredCog = self.currentlyLuredSuits.keys()[tgtPos]
+                            orgLure = self.currentlyLuredSuits[luredCog][4]
+                        else:
+                            orgLure = 0
                         if orgLure:
                             attack[TOON_KBBONUS_COL][tgtPos] = math.ceil(totalDmgs * 0.65)
                         else:
