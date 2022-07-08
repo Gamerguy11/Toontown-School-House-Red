@@ -412,6 +412,7 @@ class BattleCalculatorAI:
         targetList = self.__createToonTargetList(toonId)
         atkHit, atkAcc = self.__calcToonAtkHit(toonId, targetList)
         atkTrack, atkLevel, atkHp = self.__getActualTrackLevelHp(attack)
+
         if not atkHit and atkTrack != HEAL:
             return
         validTargetAvail = 0
@@ -441,7 +442,8 @@ class BattleCalculatorAI:
                                 rounds = self.NumRoundsLured[atkLevel]
                                 wakeupChance = 100 - atkAcc * 2
                                 npcLurer = attack[TOON_TRACK_COL] == NPCSOS
-                                currLureId = self.__addLuredSuitInfo(targetId, -1, rounds, wakeupChance, toonId, atkLevel, lureId=currLureId, npc=npcLurer)
+                                orgLure = self.__toonCheckGagBonus(attack[TOON_ID_COL], atkTrack, atkLevel) or self.__checkPropBonus(atkTrack)
+                                currLureId = self.__addLuredSuitInfo(targetId, -1, rounds, wakeupChance, toonId, atkLevel, lureId=currLureId, npc=npcLurer, orgLure=orgLure)
                                 if self.notify.getDebug():
                                     self.notify.debug('Suit lured for ' + str(rounds) + ' rounds max with ' + str(wakeupChance) + '% chance to wake up each round')
                                 targetLured = 1
@@ -479,16 +481,8 @@ class BattleCalculatorAI:
                             self.__addLuredSuitsDelayed(toonId, targetId)
                     if targetLured and (targetId not in self.successfulLures or targetId in self.successfulLures and self.successfulLures[targetId][1] < atkLevel):
                         self.notify.debug('Adding target ' + str(targetId) + ' to successfulLures list')
-                        treebonus = self.__toonCheckGagBonus(attack[TOON_ID_COL], atkTrack, atkLevel)
-                        propbonus = self.__checkPropBonus(atkTrack)
-                        if treebonus or propbonus:
-                            self.successfulLures[targetId] = [
-                            toonId, atkLevel, atkAcc, -1]
-                            self.orgLure = 1
-                        else:
-                            self.successfulLures[targetId] = [
-                            toonId, atkLevel, atkAcc, -1]
-                            self.orgLure = 0
+                        self.successfulLures[targetId] = [toonId, atkLevel, atkAcc, -1]
+                        
                 else:
                     simbase.air.doId2do.get(toonId).d_sendToonTip(5)
             else:
@@ -849,10 +843,12 @@ class BattleCalculatorAI:
                         if self.notify.getDebug():
                             self.notify.debug('Applying hp bonus to track ' + str(attack[TOON_TRACK_COL]) + ' of ' + str(attack[TOON_HPBONUS_COL]))
                     elif len(attack[TOON_KBBONUS_COL]) > tgtPos:
+                        luredCog = self.currentlyLuredSuits.keys()[tgtPos]
+                        orgLure = self.currentlyLuredSuits[luredCog][4]
                         if orgLure:
                             attack[TOON_KBBONUS_COL][tgtPos] = math.ceil(totalDmgs * 0.65)
                         else:
-                            attack[TOON_KBBONUS_COL][tgtPos] = math.ceil(totalDmgs * 0.50)
+                            attack[TOON_KBBONUS_COL][tgtPos] = math.ceil(totalDmgs * 0.5)
                         if self.notify.getDebug():
                             self.notify.debug('Applying kb bonus to track ' + str(attack[TOON_TRACK_COL]) + ' of ' + str(attack[TOON_KBBONUS_COL][tgtPos]) + ' to target ' + str(tgtPos))
                     else:
@@ -1527,7 +1523,7 @@ class BattleCalculatorAI:
 
         return currId
 
-    def __addLuredSuitInfo(self, suitId, currRounds, maxRounds, wakeChance, lurer, lureLvl, lureId=-1, npc=0):
+    def __addLuredSuitInfo(self, suitId, currRounds, maxRounds, wakeChance, lurer, lureLvl, lureId=-1, npc=0, orgLure=0):
         if lureId == -1:
             availLureId = self.__findAvailLureId(lurer)
         else:
@@ -1547,7 +1543,7 @@ class BattleCalculatorAI:
         else:
             lurerInfo = {lurer: [lureLvl, availLureId, credit]}
             self.currentlyLuredSuits[suitId] = [
-             currRounds, maxRounds, wakeChance, lurerInfo]
+             currRounds, maxRounds, wakeChance, lurerInfo, orgLure]
         self.notify.debug('__addLuredSuitInfo: currLuredSuits -> %s' % repr(self.currentlyLuredSuits))
         return availLureId
 
