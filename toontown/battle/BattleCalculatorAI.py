@@ -430,6 +430,7 @@ class BattleCalculatorAI:
                 targetId = targetList[currTarget].getDoId()
             if atkTrack == LURE:
                 self.currentlyImmuneSuits = self.getImmuneSuits()
+                orgLure = self.__toonCheckGagBonus(attack[TOON_ID_COL], atkTrack, atkLevel) or self.__checkPropBonus(atkTrack)
                 if targetId not in self.currentlyImmuneSuits:
                     if self.getSuitTrapType(targetId) == NO_TRAP:
                         if self.notify.getDebug():
@@ -441,7 +442,6 @@ class BattleCalculatorAI:
                                 rounds = self.NumRoundsLured[atkLevel]
                                 wakeupChance = 100 - atkAcc * 2
                                 npcLurer = attack[TOON_TRACK_COL] == NPCSOS
-                                orgLure = self.__toonCheckGagBonus(attack[TOON_ID_COL], atkTrack, atkLevel) or self.__checkPropBonus(atkTrack)
                                 currLureId = self.__addLuredSuitInfo(targetId, -1, rounds, wakeupChance, toonId, atkLevel, lureId=currLureId, npc=npcLurer, orgLure=orgLure)
                                 if self.notify.getDebug():
                                     self.notify.debug('Suit lured for ' + str(rounds) + ' rounds max with ' + str(wakeupChance) + '% chance to wake up each round')
@@ -472,7 +472,7 @@ class BattleCalculatorAI:
                             rounds = self.NumRoundsLured[atkLevel]
                             wakeupChance = 100 - atkAcc * 2
                             npcLurer = attack[TOON_TRACK_COL] == NPCSOS
-                            currLureId = self.__addLuredSuitInfo(targetId, -1, rounds, wakeupChance, toonId, atkLevel, lureId=currLureId, npc=npcLurer)
+                            currLureId = self.__addLuredSuitInfo(targetId, -1, rounds, wakeupChance, toonId, atkLevel, lureId=currLureId, npc=npcLurer, orgLure=orgLure)
                             if self.notify.getDebug():
                                 self.notify.debug('Suit lured for ' + str(rounds) + ' rounds max with ' + str(wakeupChance) + '% chance to wake up each round')
                             targetLured = 1
