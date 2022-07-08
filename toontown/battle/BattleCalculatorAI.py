@@ -53,7 +53,6 @@ class BattleCalculatorAI:
         self.__skillCreditMultiplier = 1
         self.tutorialFlag = tutorialFlag
         self.trainTrapTriggered = False
-        self.orgLure = 0
 
     def setSkillCreditMultiplier(self, mult):
         self.__skillCreditMultiplier = mult
@@ -819,7 +818,7 @@ class BattleCalculatorAI:
             return 1
         return 0
 
-    def __processBonuses(self, hp=1, orgLure=0):
+    def __processBonuses(self, hp=1):
         if hp:
             bonusList = self.hpBonuses
             self.notify.debug('Processing hpBonuses: ' + repr(self.hpBonuses))
@@ -1081,7 +1080,7 @@ class BattleCalculatorAI:
                 if lastAttack:
                     self.__clearLuredSuitsDelayed()
 
-        self.__processBonuses(hp=0, orgLure=self.orgLure)
+        self.__processBonuses(hp=0)
         self.__processBonuses(hp=1)
         self.__postProcessToonAttacks()
         return
